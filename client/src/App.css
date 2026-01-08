@@ -1,0 +1,302 @@
+:root {
+  --primary-color: #fb8c00;
+  --background-color: #e8eaed;  /* Whitish-grey outer parts */
+  --header-color: #263238;      /* Dark blue header */
+  --surface-color: #37474f;     /* Dark cyan/slate main */
+  --card-bg-color: #263238;     /* Darkest, matches header */
+  --border-color: #546e7a;
+  --text-primary: #eceff1;
+  --text-secondary: #b0bec5;
+  --red: #f4511e;
+  --green: #7cb342;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Global Styles */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--background-color); /* <-- Whitish-grey outer part */
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+h1, h2, h3 {
+  color: var(--text-primary);
+  margin-top: 0;
+  font-weight: 600;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: all 0.2s ease-in-out;
+}
+
+/* Header & Navigation */
+header {
+  background-color: var(--header-color); /* <-- Dark blue header */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: var(--text-primary);
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: color 0.2s;
+  font-size: 1rem;
+}
+
+nav ul li a:hover {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.logout-btn,
+.submit-btn {
+  background-color: var(--primary-color);
+  color: #000000;
+  font-weight: 700;
+}
+.logout-btn:hover,
+.submit-btn:hover {
+  opacity: 0.85;
+}
+
+/* Main Content Area */
+main {
+  padding: 1.5rem;
+  background-color: var(--surface-color); /* <-- Dark cyan main segment */
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--border-color);
+}
+
+/* Card Grid Layout */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Card Component */
+.card {
+  background-color: var(--card-bg-color); /* Darker cards */
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h3 {
+  margin: 0;
+  color: var(--primary-color);
+}
+
+.card-body {
+  padding: 1.5rem;
+  flex-grow: 1;
+}
+
+.card-body p {
+  margin: 0 0 0.75rem 0;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+.card-body p:last-child {
+  margin-bottom: 0;
+}
+.card-body strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.delete-btn {
+  background: none;
+  color: var(--red);
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 0 0.5rem;
+  line-height: 1;
+}
+.delete-btn:hover {
+  background-color: rgba(244, 81, 30, 0.1);
+}
+
+/* Form Styling (for Home, Login, Register) */
+.form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Make auth forms (login/register) use the main color */
+.form-container.auth-form {
+  max-width: 400px;
+  margin-top: 3rem;
+  padding: 2rem;
+  background-color: var(--surface-color);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"],
+.form-group input[type="date"],
+.form-group input[type="number"],
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  background-color: var(--card-bg-color); /* Darker inputs */
+  color: var(--text-primary);
+  font-size: 1rem;
+  box-sizing: border-box; 
+}
+
+.form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(251, 140, 0, 0.3);
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.form-error {
+  color: var(--red);
+  text-align: center;
+}
+.form-success {
+  color: var(--green);
+  text-align: center;
+}
+.auth-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-secondary);
+}
+
+/* Notification Component */
+.notifications {
+  position: relative;
+}
+.notifications button {
+  background: none;
+  font-size: 1.5rem;
+  padding: 0;
+  color: var(--text-secondary);
+}
+.notifications button:hover {
+  color: var(--text-primary);
+}
+.notifications-dropdown {
+  position: absolute;
+  right: 0;
+  top: 150%;
+  background: var(--surface-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 320px;
+  padding: 1rem;
+  z-index: 10;
+  border: 1px solid var(--border-color);
+}
+.notifications-dropdown ul {
+  display: block;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.notifications-dropdown li {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+.notifications-dropdown li:last-child {
+  border-bottom: none;
+}
+.notifications-dropdown li strong {
+  color: var(--text-primary);
+}
